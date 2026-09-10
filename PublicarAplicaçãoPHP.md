@@ -165,10 +165,7 @@ curl http://localhost
 ### Passo 31 - Testar pelo navegador
 ```bash
 http://IP_DA_VM
-
 ![Página sem a alteração](images/pagina-sem-alteracao.png)
-
-!image.png
 ```
 ### Passo 32 - Testar a página
 ```bash
@@ -193,4 +190,6 @@ Depois:
 Ctrl + X
 ```
 ### 35 - Atualizar o navegador e verificar se a atualização foi aplicada
+```bash
 ![Página Atualizada](images/pagina-atualizada.png)
+```
