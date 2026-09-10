@@ -170,6 +170,7 @@ http://IP_DA_VM
 ```bash
 sudo nano /var/www/html/index.php
 ```
+**A partir deste ponto, a atividade foge do escopo da questão. A etapa foi realizada apenas para testar o funcionamento e a exibição da página**
 ### Passo 33 - Alterar a mensagem
 ```bash 
 Página publicada com sucesso no Oracle Linux!
