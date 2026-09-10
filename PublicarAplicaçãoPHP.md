@@ -163,7 +163,9 @@ ls -la /var/www/html/index.php
 curl http://localhost
 ```
 ### Passo 31 - Testar pelo navegador
+```bash
 http://IP_DA_VM
+```
 ![Página sem a alteração](images/pagina-sem-alteracao.png)
 
 ### Passo 32 - Testar a página
