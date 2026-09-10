@@ -26,11 +26,11 @@ Durante a atividade foram praticados conceitos de:
 
 ### Passo 1 — Atualizar o sistema
 ```bash
-sudo apt update -y
+sudo dnf update -y
 ```
 ### Passo 2 — Instalar o git
 ```bash
-sudo sudo apt install git -y
+sudo sudo dnf install git -y
 ```
 ### Passo 3 - Verificar a instalação do git 
 ```bash
