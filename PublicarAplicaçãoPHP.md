@@ -26,42 +26,56 @@ Durante a atividade foram praticados conceitos de:
 ```bash
 sudo dnf update -y
 ```
+![Página Atualizada](images/1.0.png)
+![Página Atualizada](images/1.1.png)
 ### Passo 2 — Instalar o git
 ```bash
 sudo sudo dnf install git -y
 ```
+![Página Atualizada](images/2.0.png)
+![Página Atualizada](images/2.1.png)
 ### Passo 3 - Verificar a instalação do git 
 ```bash
 git --version
 ```
+![Página Atualizada](images/3.png)
 ### Passo 4 - Clonar o repositório na VM 
 ```bash
 git clone https://github.com/thiagoinacioalves/treinamento.git`
 ```
+![Página Atualizada](images/4.png)
 ### Passo 5 - Entrar na pasta 
 ```bash
 cd treinamento/Linux/app-php
 ```
+![Página Atualizada](images/5.png)
 ### Passo 6 - Conferir os arquivos 
 ```bash
 ls
 ```
+![Página Atualizada](images/6.png)
 ### Passo 7 - Conferir o conteudo PHP 
 ```bash
 cat index.php
 ```
+![Página Atualizada](images/7.0.png)
+![Página Atualizada](images/7.1.png)
 ### Passo 8  - Instalar o apache 
 ```bash
 sudo dnf install httpd -y
 ```
+![Página Atualizada](images/8.0.png)
+![Página Atualizada](images/8.1.png)
 ### Passo  9 - Habilitar o Apache para iniciar com o sistema
 ```bash
 sudo systemctl enable httpd
 ```
+![Página Atualizada](images/9.png)
 ### Passo 10 - Iniciar/reiniciar o Apache 
 ```bash
 sudo systemctl restart httpd
 ```
+![Página Atualizada](images/10.png)
 ### Passo 11- Verificar se o Apache está funcionando
 ```bash
 sudo systemctl status httpd
