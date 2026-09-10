@@ -22,8 +22,6 @@ Durante a atividade foram praticados conceitos de:
 
 # 🚀 Resolução
 
-## 1. 🔄 Preparação do sistema
-
 ### Passo 1 — Atualizar o sistema
 ```bash
 sudo dnf update -y
