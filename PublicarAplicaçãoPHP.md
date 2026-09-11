@@ -209,6 +209,7 @@ sudo nano /var/www/html/index.php
 ```
 ![Página Atualizada](images/32.0.png)
 ![Página Atualizada](images/32.1.png)
+
 **A partir deste ponto, a atividade foge do escopo da questão. A etapa foi realizada apenas para testar o funcionamento e a exibição da página**
 ### Passo 33 - Alterar a mensagem e salvar
 ```bash 
