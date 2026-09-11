@@ -26,7 +26,7 @@ Durante a atividade foram praticados conceitos de:
 ```bash
 sudo dnf update -y
 ```
-![Página Atualizada](images/1.0.png)
+![Passo 1](images/1.0.png)
 ![Página Atualizada](images/1.1.png)
 ### Passo 2 — Instalar o git
 ```bash
@@ -229,4 +229,4 @@ Ctrl + X
 ```
 ![Página Atualizada](images/33.png)
 ### 34 - Atualizar o navegador e verificar se a atualização foi aplicada
-![Página Atualizada](images/34)
+![Página Atualizada](images/34.png)
