@@ -185,12 +185,10 @@ http://IP_DA_VM
 sudo nano /var/www/html/index.php
 ```
 **A partir deste ponto, a atividade foge do escopo da questão. A etapa foi realizada apenas para testar o funcionamento e a exibição da página**
-### Passo 33 - Alterar a mensagem
+### Passo 33 - Alterar a mensagem e salvar
 ```bash 
 Página publicada com sucesso no Oracle Linux!
-```
-### Passo 34 Salvar  
-```bash
+
 Pelo editor de código nano:
 
 Ctrl + O
