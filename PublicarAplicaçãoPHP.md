@@ -203,8 +203,6 @@ curl http://localhost
 http://IP_DA_VM
 ```
 ![Página Atualizada](images/31.png)
-![Página sem a alteração](images/pagina-sem-alteracao.png)
-
 ### Passo 32 - Testar a página
 ```bash
 sudo nano /var/www/html/index.php
