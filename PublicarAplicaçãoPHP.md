@@ -106,7 +106,7 @@ No computador, abra: http://IP_DA_VM
 ```
 ### Passo 18 - Instalação do PHP
 ```bash
-sudo dnf module list php
+sudo dnf install httpd php -y
 ```
 ### Passo 19 - Verificar a instalação do PHP
 ```bash
