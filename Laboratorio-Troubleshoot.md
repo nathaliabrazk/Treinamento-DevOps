@@ -131,39 +131,48 @@ sudo nginx -T 2>&1 | grep -E "location|proxy_pass|root"
 
 Após esses comandos é possível verificar que:
 o Nginx está funcionando ✅
+
+
 Camada Web/Nginx está funcionando ✅
+
+
 PostgreSQL está funcionando ✅
+
+
 A API Node.js é a principal suspeita ⚠️ - Após o comando ps aux | grep node não apareceu nenhum processo Node.js.
 
 ### Passo 13 - verificar o que acontece quando tentamos acessar a API diretamente.
 ```bash
 curl -i http://127.0.0.1:3000
 ```
+![Passo 13](images/ts-13.0.png)
 Evidência muito forte de que não existe serviço escutando na porta 3000 no back-end.
 
 ### Passo 14 - Testar o endpoint que o Front-end usa:
 ```bash
 curl -i http://127.0.0.1:3000/api/items
 ```
+![Passo 14](images/ts-14.0.png)
 ### Passo 15 - Testar através do próprio Nginx:
 ```bash
 curl -i http://localhost/api/items
 ```
-
+![Passo 15](images/ts-15.0.png)
 ### Passo 16 - Testar Node.js
 ```bash
 curl -i http://127.0.0.1:3000
 ```
-
+![Passo 16](images/ts-16.0.png)
 ### Passo 17 - Testar diretamente o endpoint
 ```bash
 curl -i http://127.0.0.1:3000/api/items
 ```
-
+![Passo 17](images/ts-17.0.png)
 ### Passo 18 - Testar pelo Nginx
 ```bash
 curl -i http://localhost/api/items
 ```
+![Passo 18](images/ts-18.0.png)
 É possível observar que
 127.0.0.1:3000 - não existe nenhum serviço aceitando conexão.
 /api/items pelo Nginx retornou 404, então é necessário verificar o bloco de configuração correto.
