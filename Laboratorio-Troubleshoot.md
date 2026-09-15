@@ -174,7 +174,6 @@ curl -i http://localhost/api/items
 ```
 ![Passo 18](images/ts-18.0.png)
 
-
 É possível observar que
 127.0.0.1:3000 - não existe nenhum serviço aceitando conexão.
 /api/items pelo Nginx retornou 404, então é necessário verificar o bloco de configuração correto.
@@ -185,17 +184,19 @@ PostgreSQL está funcionando.
 ```bash
 systemctl list-units --type=service --all | grep -Ei 'node|api|app'
 ```
+![Passo 19](images/ts-19.0.png)
 e
 
 ```bash
 systemctl list-unit-files --type=service | grep -Ei 'node|api|app'
 ```
+![Passo 19](images/ts-19.1.png)
 e
 
 ```bash
 systemctl --failed
 ```
-
+![Passo 19](images/ts-19.2.png)
 Foi possível verificar que a API existe como serviço, está habilitada para iniciar automaticamente, mas está tentando iniciar e falhando, entrando em um ciclo de reinicialização automática.
 
 Isso explica perfeitamente por que a porta 3000 não está aberta.
@@ -204,11 +205,15 @@ Isso explica perfeitamente por que a porta 3000 não está aberta.
 ```bash
 sudo systemctl status training-api.service --no-pager
 ```
+![Passo 19](images/ts-20.0.png)
+
 e
 
 ```bash
 sudo journalctl -u training-api.service --no-pager -n 50
 ```
+![Passo 19](images/ts-20.1.png)
+
 O serviço está tentando executar:
 /usr/bin/node /opt/training-api/server.js
 mas o usuário que executa o serviço não tem permissão para acessar/ler o arquivo server.js.
@@ -217,6 +222,7 @@ mas o usuário que executa o serviço não tem permissão para acessar/ler o arq
 ```bash
 sudo systemctl status training-api.service --no-pager
 ```
+![Passo 21](images/ts-21.0.png)
 
 ### Passo 22 - Descobrir exatamente quais são as permissões atuais e qual usuário o serviço utiliza
 
@@ -224,6 +230,7 @@ Qual usuário o serviço training-api utiliza
 ```bash
 sudo systemctl cat training-api.service
 ```
+![Passo 22](images/ts-22.0.png)
 
 Quem é o dono do server.js
 ```bash
@@ -234,6 +241,7 @@ Quais são as permissões da pasta /opt/training-api
 ```bash
 ls -ld /opt/training-api
 ```
+![Passo 22](images/ts-22.1.png)
 
 ### Passo 23 - Descobrir exatamente quais são as permissões atuais e qual usuário o serviço utiliza
 
@@ -241,6 +249,7 @@ Qual usuário o serviço training-api utiliza
 ```bash
 sudo systemctl cat training-api.service
 ```
+![Passo 23](images/ts-23.0.png)
 O serviço executa a API com: User=training-api
 
 Mas o arquivo está assim: -rw------- 1 root root 1920 /opt/training-api/server.js
