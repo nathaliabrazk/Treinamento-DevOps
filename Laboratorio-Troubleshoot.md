@@ -73,26 +73,32 @@ whoami
 hostname
 cat /etc/os-release
 ```
+![Passo 6](images/ts-6.0.png)
 
 ### Passo 7 - Verificar as portas abertas
 ```bash
 sudo ss -lntp
 ```
+![Passo 5](images/ts-7.0.png)
 
 ### Passo 8 - Verificar o Nginx
 ```bash
 sudo systemctl status nginx --no-pager
 ```
+![Passo 5](images/ts-8.0.png)
 
 ### Passo 9 - Testar o Nginx localmente
 ```bash
 curl -I http://localhost
 ```
+![Passo 9](images/ts-9.0.png)
 e
 
 ```bash
 curl http://localhost
 ```
+![Passo 9](images/ts-9.1.png)
+
 ### Passo 10 - Verificar o Node.js
 ```bash
 ps aux | grep node
