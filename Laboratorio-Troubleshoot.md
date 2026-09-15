@@ -301,11 +301,13 @@ http://ec2-54-167-237-81.compute-1.amazonaws.com/
 ```
 ![Passo 26](images/resolvido.png)
 
-###Conclusão
+### Conclusão
 
 Durante o laboratório, foi realizado o troubleshooting da aplicação web, analisando separadamente as camadas de Nginx, API Node.js e PostgreSQL.
 
-Inicialmente, a aplicação apresentava o erro “Falha ao consultar a aplicação – Unexpected token '<'”. Após os testes, foi identificado que o Nginx e o PostgreSQL estavam funcionando normalmente, enquanto a API não estava iniciando na porta 3000.
+Inicialmente, a aplicação apresentava o erro “Falha ao consultar a aplicação – Unexpected token '<'”. 
+
+Após os testes, foi identificado que o Nginx e o PostgreSQL estavam funcionando normalmente, enquanto a API não estava iniciando na porta 3000.
 
 A análise do serviço training-api.service e dos logs mostrou um erro de permissão no arquivo:
 
