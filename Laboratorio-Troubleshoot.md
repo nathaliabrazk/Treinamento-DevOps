@@ -58,6 +58,7 @@ Erro observado na página: "Falha ao consultar a aplicação
 Unexpected token '<'"
 
 Aqui começa o troubleshooting de forma organizada, realização de testes 
+
 ### Passo 5 - Confirmar o usuário
 ```bash
 whoami
