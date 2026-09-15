@@ -44,15 +44,18 @@ chmod 400 lab.pem
 ```bash
 ssh -i lab.pem ubuntu@54.167.237.81
 ```
-![Passo 3](images/ts-01)
+![Passo 3](images/ts-3.0.png)
 ### Passo 4 - Testar no navegador
 ```bash
 http://ec2-54-167-237-81.compute-1.amazonaws.com/
 ```
-![Passo 4](images/ts-01)
 Obs: realizei o teste utilizando o ip 54.167.237.81 porém aparecia um bloqueio, sendo assim testei com o dns: ec2-54-167-237-81.compute-1.amazonaws.com e a aplicação subiu como o esperado
-![Erro-IP](images/1.0.png)
-![Acerto-DNS](images/1.0.png)
+
+IP:
+![Erro-IP](images/erro-ip.png)
+
+DNS
+![Acerto-DNS](images/acerto-dns.png)
 
 Erro observado na página: "Falha ao consultar a aplicação
 Unexpected token '<'"
@@ -63,6 +66,7 @@ Aqui começa o troubleshooting de forma organizada, realização de testes
 ```bash
 whoami
 ```
+![Passo 5](images/ts-5.0.png)
 
 ### Passo 6 - Verificar a máquina
 ```bash
