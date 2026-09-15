@@ -103,26 +103,31 @@ curl http://localhost
 ```bash
 ps aux | grep node
 ```
+![Passo 10](images/ts-10.0.png)
 e
-
 ```bash
 pgrep -a node
 ```
+![Passo 10](images/ts-10.1.png)
 
 ### Passo 11 - Verificar o PostgreSQL
 ```bash
 sudo systemctl status postgresql --no-pager
 ```
+![Passo 11](images/ts-11.0.png)
 e
 
 ```bash
 sudo ss -lntp | grep 5432
 ```
+![Passo 11](images/ts-11.1.png)
 
 ### Passo 12 - Descobrir como o Nginx está encaminhando a API
 ```bash
 sudo nginx -T 2>&1 | grep -E "location|proxy_pass|root"
 ```
+![Passo 11](images/ts-12.0.png)
+
 
 Após esses comandos é possível verificar que:
 o Nginx está funcionando ✅
