@@ -250,6 +250,8 @@ Qual usuário o serviço training-api utiliza
 sudo systemctl cat training-api.service
 ```
 ![Passo 23](images/ts-23.0.png)
+
+
 O serviço executa a API com: User=training-api
 
 Mas o arquivo está assim: -rw------- 1 root root 1920 /opt/training-api/server.js
