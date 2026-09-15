@@ -173,6 +173,8 @@ curl -i http://127.0.0.1:3000/api/items
 curl -i http://localhost/api/items
 ```
 ![Passo 18](images/ts-18.0.png)
+
+
 É possível observar que
 127.0.0.1:3000 - não existe nenhum serviço aceitando conexão.
 /api/items pelo Nginx retornou 404, então é necessário verificar o bloco de configuração correto.
