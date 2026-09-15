@@ -33,13 +33,13 @@ cd ~/Downloads
 ```bash
 ls
 ```
-![Passo 1](images/ts-1.0)
+![Passo 1](images/ts-1.0.png)
 
 ### Passo 2 — Proteger a sua chave privada (o arquivo lab.pem), garantindo que apenas você possa ler o arquivo e ninguém mais no sistema tenha acesso a ele.
 ```bash
 chmod 400 lab.pem
 ```
-![Passo 2](images/ts-2.0)
+![Passo 2](images/ts-2.0.png)
 ### Passo 3 - Conectar na máquina
 ```bash
 ssh -i lab.pem ubuntu@54.167.237.81
