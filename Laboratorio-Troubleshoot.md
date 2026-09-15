@@ -146,6 +146,8 @@ A API Node.js é a principal suspeita ⚠️ - Após o comando ps aux | grep nod
 curl -i http://127.0.0.1:3000
 ```
 ![Passo 13](images/ts-13.0.png)
+
+
 Evidência muito forte de que não existe serviço escutando na porta 3000 no back-end.
 
 ### Passo 14 - Testar o endpoint que o Front-end usa:
