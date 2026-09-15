@@ -222,7 +222,7 @@ mas o usuário que executa o serviço não tem permissão para acessar/ler o arq
 ```bash
 sudo systemctl status training-api.service --no-pager
 ```
-![Passo 21](images/ts-21.0.png)
+![Passo 21](images/ts-21.png)
 
 ### Passo 22 - Descobrir exatamente quais são as permissões atuais e qual usuário o serviço utiliza
 
