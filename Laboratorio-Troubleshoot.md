@@ -273,41 +273,24 @@ Isso explica o EACCES e a API não conseguir iniciar.
 
 ```bash
 sudo chown training-api:training-api /opt/training-api/server.js
-```
-```bash
+
 ls -l /opt/training-api/server.js
 ```
+![Passo 24](images/ts-24.0.png)
 
 ### Passo 25 - Reiniciar a API
 ```bash
 sudo systemctl restart training-api.service
 ```
-```bash
-sudo systemctl status training-api.service --no-pager
-```
-### Passo 26 - Testar a API
-```bash
-curl -i http://127.0.0.1:3000/health
-```
-```bash
-curl -i http://127.0.0.1:3000/api/items
-```
-### Passo 27 - Verificar o status da API
-```bash
-sudo systemctl status training-api.service --no-pager
-```
-e
-
-```bash
-sudo journalctl -u training-api.service --no-pager -n 30
-```
-
-### Passo 28 - Verificar se a correção funcionou
-```bash
-sudo systemctl restart training-api.service
-```
 e
 
 ```bash
 sudo systemctl status training-api.service --no-pager
 ```
+![Passo 25](images/ts-25.0.png)
+
+### Passo 26 - Verificar no navegador
+```bash
+http://ec2-54-167-237-81.compute-1.amazonaws.com/
+```
+![Passo 26](images/resolvido.png)
