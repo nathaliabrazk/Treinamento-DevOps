@@ -297,3 +297,39 @@ http://ec2-54-167-237-81.compute-1.amazonaws.com/
 ```
 ![Passo 26](images/resolvido.png)
 
+###Conclusão
+Conclusão
+
+Durante o laboratório, foi realizado o troubleshooting da aplicação web, analisando separadamente as camadas de Nginx, API Node.js e PostgreSQL.
+
+Inicialmente, a aplicação apresentava o erro “Falha ao consultar a aplicação – Unexpected token '<'”. Após os testes, foi identificado que o Nginx e o PostgreSQL estavam funcionando normalmente, enquanto a API não estava iniciando na porta 3000.
+
+A análise do serviço training-api.service e dos logs mostrou um erro de permissão no arquivo:
+
+
+```bash
+/opt/training-api/server.js
+```
+
+
+O arquivo pertencia ao root e possuía permissão 600, mas a API era executada pelo usuário training-api. Dessa forma, o serviço não conseguia acessar o arquivo.
+
+A correção foi realizada com:
+
+```bash
+sudo chown training-api:training-api /opt/training-api/server.js
+```
+
+Em seguida, a API foi reiniciada:
+
+```bash
+sudo systemctl restart training-api.service
+```
+
+
+Após a correção, a aplicação voltou a funcionar normalmente e os dados passaram a ser exibidos.
+
+Causa raiz: permissão incorreta no arquivo server.js, impedindo a inicialização da API.
+
+Resultado: API restaurada e aplicação funcionando novamente.
+
