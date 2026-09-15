@@ -180,6 +180,7 @@ curl -i http://localhost/api/items
 Nginx está funcionando.
 PostgreSQL está funcionando.
 
+
 ### Passo 19 - Procurar o serviço da API
 ```bash
 systemctl list-units --type=service --all | grep -Ei 'node|api|app'
@@ -205,14 +206,15 @@ Isso explica perfeitamente por que a porta 3000 não está aberta.
 ```bash
 sudo systemctl status training-api.service --no-pager
 ```
-![Passo 19](images/ts-20.0.png)
+![Passo 20](images/ts-20.0.png)
 
 e
 
 ```bash
 sudo journalctl -u training-api.service --no-pager -n 50
 ```
-![Passo 19](images/ts-20.1.png)
+![Passo 20](images/ts-20.1.png)
+
 
 O serviço está tentando executar:
 /usr/bin/node /opt/training-api/server.js
@@ -294,3 +296,4 @@ sudo systemctl status training-api.service --no-pager
 http://ec2-54-167-237-81.compute-1.amazonaws.com/
 ```
 ![Passo 26](images/resolvido.png)
+
