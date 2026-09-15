@@ -302,7 +302,6 @@ http://ec2-54-167-237-81.compute-1.amazonaws.com/
 ![Passo 26](images/resolvido.png)
 
 ###Conclusão
-Conclusão
 
 Durante o laboratório, foi realizado o troubleshooting da aplicação web, analisando separadamente as camadas de Nginx, API Node.js e PostgreSQL.
 
