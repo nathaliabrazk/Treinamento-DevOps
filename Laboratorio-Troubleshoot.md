@@ -200,6 +200,8 @@ e
 systemctl --failed
 ```
 ![Passo 19](images/ts-19.2.png)
+
+
 Foi possível verificar que a API existe como serviço, está habilitada para iniciar automaticamente, mas está tentando iniciar e falhando, entrando em um ciclo de reinicialização automática.
 
 Isso explica perfeitamente por que a porta 3000 não está aberta.
