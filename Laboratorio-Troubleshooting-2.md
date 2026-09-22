@@ -62,15 +62,45 @@ sudo systemctl status docker
 ```bash
 cd /home/ubuntu/aws-docker
 ```
+
 ![Passo 6](images/ts2-6.0.png)
-### Passo 7 —
+Problema encontrado: 
+o Docker nem está instalado na instância. Por isso não há nada escutando na porta 80 e o navegador recebe ERR_CONNECTION_RESET — o SO aceita a conexão TCP, mas não existe processo nenhum para responder.
+### Passo 7 — Confirmar que o pacote docker não existe
 ```bash
-
+sudo systemctl status docker
 ```
-![Passo 7](images/ts2-.png)
-### Passo 8 —
+![Passo 7](images/ts2-7.0.png)
 ```bash
+ cd /home/ubuntu/aws-docker
+```
+![Passo 7](images/ts2-7.1.png)
+### Passo 8 — Instalar o Docker Engine (Ubuntu 24.04)
+```bash
+# Remove pacotes conflitantes antigos, se existirem
+sudo apt-get remove -y docker docker-engine docker.io containerd runc 2>/dev/null
 
+# Atualiza índices
+sudo apt-get update
+
+# Dependências
+sudo apt-get install -y ca-certificates curl gnupg
+
+# Chave GPG oficial do Docker
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Repositório
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+
+# Instala Docker + Compose plugin
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 ![Passo 8](images/ts2-.png)
 ### Passo 9 —
