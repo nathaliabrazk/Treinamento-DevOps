@@ -133,11 +133,15 @@ newgrp docker
 docker ps -a
 ```
 ![Passo 12](images/ts2-12.0.png)
-### Passo 13 — 
+### Passo 13 — Subir a aplicação de novo
 ```bash
-
+cd /home/ubuntu/aws-docker
+ls
+docker compose up -d
+docker ps -a
 ```
 ![Passo 13](images/ts2-13.0.png)
+É possível observar que apenas o container do banco (db) subiu. O backend e o frontend não aparecem nem tentaram subir, o que sugere que algo no compose.yml está impedindo o build/start deles (imagem não definida corretamente, erro de build, ou até um profile/condição que os exclui).
 ### Passo 14 — 
 ```bash
 
