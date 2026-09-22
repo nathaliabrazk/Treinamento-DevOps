@@ -51,6 +51,8 @@ ssh -i lab.pem ubuntu@32.193.247.226
 http://ec2-32-193-247-226.compute-1.amazonaws.com/
 ```
 ![Passo 4](images/ts2-4.0.png)
+
+Aqui começa o troubleshooting de forma organizada, realização de testes
 ### Passo 5 —
 ```bash
 
