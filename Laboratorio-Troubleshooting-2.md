@@ -124,9 +124,9 @@ docker --version
 ```bash
 
 ```
-![Passo 10](images/ts2-10.0.png)
-### Passo 10 — 
+![Passo 1 ](images/ts2-11.0.png)
+### Passo 12 — 
 ```bash
 
 ```
-![Passo 10](images/ts2-10.0.png)
+![Passo 10](images/ts2-12.0.png)
