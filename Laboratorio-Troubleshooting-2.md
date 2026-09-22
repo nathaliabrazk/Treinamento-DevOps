@@ -64,6 +64,8 @@ cd /home/ubuntu/aws-docker
 ```
 
 ![Passo 6](images/ts2-6.0.png)
+
+
 Problema encontrado: 
 o Docker nem está instalado na instância. Por isso não há nada escutando na porta 80 e o navegador recebe ERR_CONNECTION_RESET — o SO aceita a conexão TCP, mas não existe processo nenhum para responder.
 ### Passo 7 — Confirmar que o pacote docker não existe
