@@ -125,8 +125,22 @@ docker --version
 sudo usermod -aG docker $USER
 ```
 ![Passo 1 ](images/ts2-11.0.png)
-### Passo 12 — 
+### Passo 12 — Fazer com que o grupo docker seja aplicado à sessão atual do terminal para que a permissão de sudo seja aplicada sem precisar reiniciar o acesso ssh.
+```bash
+newgrp docker
+```
+```bash
+docker ps -a
+```
+![Passo 12](images/ts2-12.0.png)
+### Passo 13 — 
 ```bash
 
 ```
-![Passo 10](images/ts2-12.0.png)
+![Passo 13](images/ts2-13.0.png)
+### Passo 14 — 
+```bash
+
+```
+![Passo 13](images/ts2-14.0.png)
+
