@@ -36,16 +36,16 @@ ls
 ```
 ![Passo 1](images/ts2-1.1.png)
 
-### Passo 2 — 
+### Passo 2 — Proteger a sua chave privada (o arquivo lab.pem), garantindo que apenas você possa ler o arquivo e ninguém mais no sistema tenha acesso a ele.
 ```bash
 chmod 400 lab.pem
 ```
 ![Passo 2](images/ts2-2.0.png)
-### Passo 3 —
+### Passo 3 — Conectar na máquina Linux
 ```bash
-
+ssh -i lab.pem ubuntu@32.193.247.226
 ```
-![Passo 3](images/ts2-.png)
+![Passo 3](images/ts2-3.0.png)
 ### Passo 4 —
 ```bash
 
