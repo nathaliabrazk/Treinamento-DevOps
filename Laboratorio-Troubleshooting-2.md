@@ -46,11 +46,11 @@ chmod 400 lab.pem
 ssh -i lab.pem ubuntu@32.193.247.226
 ```
 ![Passo 3](images/ts2-3.0.png)
-### Passo 4 —
+### Passo 4 — Testar no navegador
 ```bash
-
+http://ec2-32-193-247-226.compute-1.amazonaws.com/
 ```
-![Passo 4](images/ts2-.png)
+![Passo 4](images/ts2-4.0.png)
 ### Passo 5 —
 ```bash
 
