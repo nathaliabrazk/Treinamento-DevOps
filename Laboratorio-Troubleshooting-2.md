@@ -75,6 +75,11 @@ sudo systemctl status docker
  cd /home/ubuntu/aws-docker
 ```
 ![Passo 7](images/ts2-7.1.png)
+```bash
+which docker
+docker --version
+```
+![Passo 7](images/ts2-7.2.png)
 ### Passo 8 — Instalar o Docker Engine (Ubuntu 24.04)
 ```bash
 # Remove pacotes conflitantes antigos, se existirem
