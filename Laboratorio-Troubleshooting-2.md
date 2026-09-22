@@ -53,16 +53,16 @@ http://ec2-32-193-247-226.compute-1.amazonaws.com/
 ![Passo 4](images/ts2-4.0.png)
 
 Aqui começa o troubleshooting de forma organizada, realização de testes
-### Passo 5 —
+### Passo 5 — Verificar se o docker está rodando
 ```bash
-
+sudo systemctl status docker
 ```
-![Passo 5](images/ts2-.png)
-### Passo 6 —
+![Passo 5](images/ts2-5.0.png)
+### Passo 6 — Verificar conteiners docker
 ```bash
-
+cd /home/ubuntu/aws-docker
 ```
-![Passo 6](images/ts2-.png)
+![Passo 6](images/ts2-5.1.png)
 ### Passo 7 —
 ```bash
 
