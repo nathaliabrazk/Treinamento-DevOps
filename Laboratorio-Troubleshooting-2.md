@@ -120,9 +120,9 @@ sudo systemctl status docker
 docker --version
 ```
 ![Passo 10](images/ts2-10.0.png)
-### Passo 11 —
+### Passo 11 — Rodar docker sem sudo
 ```bash
-
+sudo usermod -aG docker $USER
 ```
 ![Passo 1 ](images/ts2-11.0.png)
 ### Passo 12 — 
