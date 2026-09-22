@@ -115,8 +115,18 @@ sudo systemctl enable --now docker
 sudo systemctl status docker
 ```
 ![Passo 9](images/ts2-9.0.png)
-### Passo 10 —
+### Passo 10 — Verificar instalação
+```bash
+docker --version
+```
+![Passo 10](images/ts2-10.0.png)
+### Passo 11 —
 ```bash
 
 ```
-![Passo 10](images/ts2-.png)
+![Passo 10](images/ts2-10.0.png)
+### Passo 10 — 
+```bash
+
+```
+![Passo 10](images/ts2-10.0.png)
