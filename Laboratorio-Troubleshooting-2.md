@@ -147,9 +147,24 @@ docker ps -a
 ```bash
 cat compose.yml
 ```
+
+O compose.yml só define o serviço db. Não existe backend nem frontend declarados no arquivo, por isso o Docker nunca tentou subir essas camadas. Não é um erro de configuração (variável errada, porta errada), é uma falta completa dos serviços no compose.
+
+Isso já explica todo o sintoma: sem backend e frontend, nada escuta na porta 80, e o navegador recebe ERR_CONNECTION_RESET.
 ![Passo 14](images/ts2-14.0.png)
 ### Passo 15 — Verificar o instance.env
 ```bash
 cat instance.env
 ```
-![Passo 14](images/ts2-15.0.png)
+![Passo 15](images/ts2-15.0.png)
+### Passo 16 — Tentar subir de novo, mas olhando o output completo
+```bash
+docker compose up
+```
+![Passo 16](images/ts2-16.0.png)
+### Passo 17 — Conferir se existe Dockerfile nas pastas backend/frontend
+```bash
+ls -la backend
+ls -la frontend
+```
+![Passo 17](images/ts2-17.0.png)
