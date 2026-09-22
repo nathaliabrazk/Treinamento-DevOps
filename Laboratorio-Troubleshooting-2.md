@@ -168,3 +168,5 @@ ls -la backend
 ls -la frontend
 ```
 ![Passo 17](images/ts2-17.0.png)
+
+Aparentemente não existem Dockerfiles nem entradas no compose para backend e frontend, só o código-fonte está lá. É necessário criar os Dockerfiles e completar o compose.yml.
