@@ -109,12 +109,12 @@ sudo apt-get update
 # Instala Docker + Compose plugin
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
-![Passo 8](images/ts2-.png)
-### Passo 9 —
+### Passo 9 — Habilitar e iniciar o docker
 ```bash
-
+sudo systemctl enable --now docker
+sudo systemctl status docker
 ```
-![Passo 9](images/ts2-.png)
+![Passo 9](images/ts2-9.0.png)
 ### Passo 10 —
 ```bash
 
