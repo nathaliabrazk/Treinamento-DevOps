@@ -143,9 +143,13 @@ docker ps -a
 ![Passo 13](images/ts2-13.0.png)
 
 É possível observar que apenas o container do banco (db) subiu. O backend e o frontend não aparecem nem tentaram subir, o que sugere que algo no compose.yml está impedindo o build/start deles (imagem não definida corretamente, erro de build, ou até um profile/condição que os exclui).
-### Passo 14 — 
+### Passo 14 — Verificar o compose.yml completo
 ```bash
-
+cat compose.yml
 ```
-![Passo 13](images/ts2-14.0.png)
-
+![Passo 14](images/ts2-14.0.png)
+### Passo 15 — Verificar o instance.env
+```bash
+cat instance.env
+```
+![Passo 14](images/ts2-15.0.png)
