@@ -62,7 +62,7 @@ sudo systemctl status docker
 ```bash
 cd /home/ubuntu/aws-docker
 ```
-![Passo 6](images/ts2-5.1.png)
+![Passo 6](images/ts2-6.0.png)
 ### Passo 7 —
 ```bash
 
