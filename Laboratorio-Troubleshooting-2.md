@@ -38,9 +38,9 @@ ls
 
 ### Passo 2 — 
 ```bash
-
+chmod 400 lab.pem
 ```
-![Passo 2](images/ts2-.png)
+![Passo 2](images/ts2-2.0.png)
 ### Passo 3 —
 ```bash
 
