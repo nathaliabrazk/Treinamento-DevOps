@@ -30,10 +30,11 @@ Neste desafio em específico foi utilizado o git bash
 ```bash
 cd ~/Downloads
 ```
+![Passo 1](images/ts2-1.0.png)
 ```bash
 ls
 ```
-![Passo 1](images/ts2-1.0.png)
+![Passo 1](images/ts2-1.1.png)
 
 ### Passo 2 — 
 ```bash
