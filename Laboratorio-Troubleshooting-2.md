@@ -170,3 +170,26 @@ ls -la frontend
 ![Passo 17](images/ts2-17.0.png)
 
 Aparentemente não existem Dockerfiles nem entradas no compose para backend e frontend, só o código-fonte está lá. É necessário criar os Dockerfiles e completar o compose.yml.
+
+### Passo 18 — Entrar na pasta aws-docker para ralizar a criação do dockerfile do backend
+```bash
+cd /home/ubuntu/aws-docker
+pwd
+ls
+```
+![Passo 18](images/ts2-18.0.png)
+
+### Passo 19 — Criar o arquivo para o back-end
+```bash
+cat > backend/Dockerfile << 'EOF'
+FROM node:20-alpine
+WORKDIR /app
+COPY package.json ./
+RUN npm install --omit=dev
+COPY server.js ./
+ENV PORT=3000
+EXPOSE 3000
+CMD ["node", "server.js"]
+EOF
+```
+![Passo 19](images/ts2-19.0.png)
