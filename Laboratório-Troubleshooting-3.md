@@ -23,7 +23,8 @@ A avaliação considera a capacidade de raciocinar sobre uma aplicação distrib
 
 O ambiente é exclusivamente para treinamento. Não altere configurações de outros trainees e não compartilhe a chave de acesso recebida.
 
-# Resolução
-Neste desafio em específico foi utilizado o git bash
 
 ## Problema do laboratório - Crie um script para automatizar a resolução caso alguma aplicação php caia utilizando a mesma vm do desafio 2
+
+### Resolução
+Neste desafio em específico foi utilizado o git bash
