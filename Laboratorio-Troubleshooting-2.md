@@ -264,3 +264,30 @@ docker compose up -d --build
 docker ps -a
 ```
 ![Passo 23](images/ts2-23.0.png)
+![Passo 23](images/ts2-23.1.png)
+
+### Passo 24 — Verificar se a aplicação foi corrigida pelo navegador
+```bash
+http://ec2-32-193-247-226.compute-1.amazonaws.com/
+```
+![Passo 24](images/ts2-24.0.png)
+
+## Conclusão do Laboratório
+
+**O problema:** a página não abria e o navegador mostrava erro de conexão recusada.
+
+**Foram descobertos dois problemas.**
+
+1. Primeiro, o Docker (a ferramenta que roda a aplicação) nem estava instalado na máquina. Sem ele, nada conseguia funcionar.
+2. Depois de instalar o Docker, foi descoberto que só o banco de dados estava configurado para subir. O restante da aplicação, a parte que mostra a página (frontend) e a parte que busca as informações no banco (backend), nunca tinha sido configurado para rodar junto.
+
+Ou seja, faltava tanto a ferramenta para rodar tudo quanto as instruções completas de como rodar cada parte da aplicação.
+
+**Como foi resolvido:**
+- Foi realizada a instalação do Docker;
+- Foram criadas as instruções que faltavam para o frontend e o backend saberem como rodar;
+- A configuração para as três partes (frontend, backend e banco) foram completadas para subirem juntas e se comunicarem entre si.
+
+**Resultado:** depois disso, os três serviços passaram a rodar corretamente, se comunicando entre si, e a página voltou a funcionar normalmente no navegador, mostrando os dados vindos do banco.
+
+**Aprendizado principal:** um erro de conexão no navegador pode parecer um problema simples, mas às vezes a causa está bem mais atrás, no caso, faltava a própria base para a aplicação existir, não só um ajuste pequeno.
