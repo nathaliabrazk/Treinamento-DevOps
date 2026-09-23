@@ -193,3 +193,74 @@ CMD ["node", "server.js"]
 EOF
 ```
 ![Passo 19](images/ts2-19.0.png)
+
+### Passo 20 — Criar o arquivo para o front-end
+```bash
+cat > frontend/Dockerfile << 'EOF'
+FROM nginx:alpine
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY index.html /usr/share/nginx/html/index.html
+EXPOSE 80
+EOF
+```
+![Passo 20](images/ts2-20.0.png)
+
+### Passo 21 — Criar um arquivo compose.yml, que define como o Docker Compose deve criar e executar os containers da aplicação
+```bash
+cat > compose.yml << 'EOF'
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: training
+      POSTGRES_USER: training_app
+      POSTGRES_PASSWORD: training_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/001-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U training_app -d training"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: training
+      DB_USER: training_app
+      DB_PASSWORD: training_password
+      PORT: 3000
+      INSTANCE_NAME: ${INSTANCE_NAME:-trainee-05}
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+EOF
+```
+![Passo 21](images/ts2-21.0.png)
+### Passo 22 — Verificar se os arquivos foram criados
+```bash
+cat backend/Dockerfile
+cat frontend/Dockerfile
+cat compose.yml
+```
+![Passo 22](images/ts2-22.0.png)
+
+### Passo 23 — Subir a aplicação e verificar os containers
+```bash
+docker compose up -d --build
+docker ps -a
+```
+![Passo 23](images/ts2-23.0.png)
