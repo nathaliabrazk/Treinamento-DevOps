@@ -31,22 +31,22 @@ Neste desafio em específico foi utilizado o git bash
 
 ### Passo a passo do script
 
-### Passo 1 — 
+### Passo 1 — Verificar se o container do PHP está rodando e "saudável" (healthy)
 ```bash
 
 ```
 
-### Passo 2 — 
+### Passo 2 — Se estiver parado ou com erro, tentar reiniciar automaticamente
 ```bash
 
 ```
 
-### Passo 3 — 
+### Passo 3 — Registrar tudo em um log com data/hora
 ```bash
 
 ```
 
-### Passo 4 — 
+### Passo 4 — Rodar de tempos em tempos via cron, sem precisar de intervenção manual
 ```bash
 
 ```
