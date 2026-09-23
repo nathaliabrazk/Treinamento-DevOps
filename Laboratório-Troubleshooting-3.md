@@ -28,3 +28,25 @@ O ambiente é exclusivamente para treinamento. Não altere configurações de ou
 
 ### Resolução
 Neste desafio em específico foi utilizado o git bash
+
+### Passo a passo do script
+
+### Passo 1 — 
+```bash
+
+```
+
+### Passo 2 — 
+```bash
+
+```
+
+### Passo 3 — 
+```bash
+
+```
+
+### Passo 4 — 
+```bash
+
+```
