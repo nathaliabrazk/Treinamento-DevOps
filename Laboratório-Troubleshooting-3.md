@@ -177,7 +177,7 @@ Se o backend voltou sozinho e apareceu uma nova entrada no log, o cron está fun
 
 
 #### SCRIPT:
-
+```bash
 #!/bin/bash
 #
 # monitor-php.sh
@@ -265,3 +265,4 @@ if [ "$RESTART_NEEDED" = true ]; then
 fi
 
 exit 0
+```
