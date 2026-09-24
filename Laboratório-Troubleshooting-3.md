@@ -118,11 +118,58 @@ cd /home/ubuntu
 ./monitor-php.sh
 cat monitor-php.log
 ```
-![Passo 3](images/ts3-4.0.png)
+![Passo 4](images/ts3-4.0.png)
 
-### Passo 5 — 
+### Passo 5 — Simular uma falha de propósito
 ```bash
-
+cd /home/ubuntu/aws-docker
+docker compose stop backend
 ```
-![Passo 3](images/ts3-5.0.png)
+![Passo 5](images/ts3-5.0.png)
+
+Verificar se o serviço realmente parou
+```bash
+docker compose ps
+```
+![Passo 6](images/ts3-5.1.png)
+
+É possível verificar que o serviço backend não é exibido, então o comando deu certo
+
+### Passo 6 — Testar o cenário de falha total (sem recuperação)
+
+Para ver o que acontece quando o script não consegue recuperar (útil para saber se o alerta de falha crítica funciona), parar o db também, já que o backend depende dele:
+```bash
+docker compose stop db backend
+./monitor-php.sh
+cat monitor-php.log
+```
+![Passo 6](images/ts3-6.0.png)
+
+### Passo 7 — Subir tudo de volta manualmente para continuar usando o lab normalmente
+```bash
+cd /home/ubuntu/aws-docker
+docker compose up -d
+docker compose ps
+```
+![Passo 7](images/ts3-7.0.png)
+
+### Passo 8 — Testar a automação via cron
+```bash
+(crontab -l 2>/dev/null; echo "*/2 * * * * /home/ubuntu/monitor-php.sh") | crontab -
+```
+![Passo 8](images/ts3-8.0.png)
+
+Derrubar o backend de novo:
+```bash
+cd /home/ubuntu/aws-docker
+docker compose stop backend
+```
+![Passo 8](images/ts3-8.1.png)
+
+Esperar 2 minutos (sem fazer nada manualmente) e depois verificar:
+```bash
+docker compose ps
+cat /home/ubuntu/monitor-php.log
+```
+Se o backend voltou sozinho e apareceu uma nova entrada no log, o cron está funcionando.
 
