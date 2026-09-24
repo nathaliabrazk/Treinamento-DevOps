@@ -174,3 +174,94 @@ cat /home/ubuntu/monitor-php.log
 Se o backend voltou sozinho e apareceu uma nova entrada no log, o cron está funcionando.
 
 ![Passo 8](images/ts3-8.2.png)
+
+
+#### SCRIPT:
+
+#!/bin/bash
+#
+# monitor-php.sh
+# Script de auto-recuperação para uma aplicação PHP rodando em container Docker.
+# Verifica se o serviço está de pé e, se não estiver, reinicia automaticamente.
+#
+# Uso:
+#   ./monitor-php.sh
+#
+# Recomendado rodar via cron a cada 1-5 minutos (ver instruções no final deste arquivo).
+
+# ==== CONFIGURAÇÕES (ajuste conforme seu projeto) ====
+
+# Pasta onde está o compose.yml da aplicação
+APP_DIR="/home/ubuntu/aws-docker"
+
+# Nome do serviço PHP no compose.yml (ex: "backend", "php", "app")
+SERVICE_NAME="backend"
+
+# URL local para checar se a aplicação está respondendo (endpoint de health-check)
+HEALTH_URL="http://localhost/health"
+
+# Arquivo de log
+LOG_FILE="/home/ubuntu/monitor-php.log"
+
+# Quantas tentativas de restart antes de desistir e só alertar
+MAX_RETRIES=3
+
+# ==== FUNÇÃO DE LOG ====
+log() {
+  echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> "$LOG_FILE"
+}
+
+# ==== VERIFICAÇÃO 1: o container está rodando? ====
+cd "$APP_DIR" || { log "ERRO: não foi possível acessar $APP_DIR"; exit 1; }
+
+CONTAINER_STATUS=$(docker compose ps --status running --services 2>/dev/null | grep -w "$SERVICE_NAME")
+
+if [ -z "$CONTAINER_STATUS" ]; then
+  log "ALERTA: container '$SERVICE_NAME' não está rodando. Tentando reiniciar..."
+  RESTART_NEEDED=true
+else
+  # ==== VERIFICAÇÃO 2: mesmo rodando, está respondendo de verdade? ====
+  HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 5 "$HEALTH_URL")
+
+  if [ "$HTTP_CODE" != "200" ]; then
+    log "ALERTA: container '$SERVICE_NAME' está rodando mas não responde (HTTP $HTTP_CODE). Tentando reiniciar..."
+    RESTART_NEEDED=true
+  else
+    log "OK: aplicação PHP respondendo normalmente (HTTP $HTTP_CODE)."
+    RESTART_NEEDED=false
+  fi
+fi
+
+# ==== AÇÃO DE RECUPERAÇÃO ====
+if [ "$RESTART_NEEDED" = true ]; then
+  ATTEMPT=1
+  RECOVERED=false
+
+  while [ $ATTEMPT -le $MAX_RETRIES ]; do
+    log "Tentativa $ATTEMPT de $MAX_RETRIES: reiniciando '$SERVICE_NAME'..."
+    docker compose restart "$SERVICE_NAME" >> "$LOG_FILE" 2>&1
+
+    sleep 5
+    HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 5 "$HEALTH_URL")
+
+    if [ "$HTTP_CODE" == "200" ]; then
+      log "SUCESSO: aplicação recuperada após restart (tentativa $ATTEMPT)."
+      RECOVERED=true
+      break
+    fi
+
+    ATTEMPT=$((ATTEMPT + 1))
+  done
+
+  if [ "$RECOVERED" = false ]; then
+    log "FALHA CRÍTICA: não foi possível recuperar '$SERVICE_NAME' após $MAX_RETRIES tentativas."
+    log "Verifique manualmente: docker compose logs $SERVICE_NAME --tail=100"
+    # Aqui você pode adicionar um alerta externo, por exemplo:
+    # curl -X POST -H "Content-Type: application/json" \
+    #   -d '{"text":"Aplicação PHP fora do ar na instância '"$(hostname)"'"}' \
+    #   "https://SEU_WEBHOOK_DO_SLACK_OU_DISCORD"
+    exit 1
+  fi
+fi
+
+exit 0
