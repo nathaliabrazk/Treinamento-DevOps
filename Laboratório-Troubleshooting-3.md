@@ -172,4 +172,4 @@ docker compose ps
 cat /home/ubuntu/monitor-php.log
 ```
 Se o backend voltou sozinho e apareceu uma nova entrada no log, o cron está funcionando.
-
+![Passo 8](images/ts3-8.2.png)
