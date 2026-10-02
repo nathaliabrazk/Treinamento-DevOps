@@ -61,12 +61,14 @@ cat 'INSTALACAO 4.0.12.15.md'
 ```
 ![Passo 5](images/SEI-5.0.png)
 
-Passo 6 - 
+Passo 6 - Descompactar arquivos
 ```bash
-![Passo 6](images/SEI-1.0.png)
+unzip sei-4.0.12.15.zip
 ```
+![Passo 6](images/SEI-6.0.png)
 
 Passo 7 - 
 ```bash
-![Passo 7](images/SEI-1.0.png)
+
 ```
+![Passo 7](images/SEI-1.0.png)
