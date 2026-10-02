@@ -71,4 +71,4 @@ Passo 7 -
 ```bash
 
 ```
-![Passo 7](images/SEI-1.0.png)
+![Passo 7](images/SEI-7.0.png)
