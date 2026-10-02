@@ -71,7 +71,9 @@ Passo 7 - Verificar exigências do sistema, na documentação foi verificado que
 #### Itens Obrigatórios
 
 • Sistema Operacional: Linux
+
 • Recursos de Hardware: 1 CPU, 2 GB de Memória RAM e 50 GB de Disco (Armazenamento).
+
 • Serviço Principal: Servidor Web Apache 2.4.6 (ou superior, dependendo do fornecedor) com o módulo mod_proxy_balancer ativado. Este módulo é indispensável, pois é ele quem faz o trabalho de distribuir o peso dos acessos entre os outros servidores.
 
 #### Item Opcional (Recomendado)
