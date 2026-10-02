@@ -90,3 +90,9 @@ Verificar informações sobre espaço total e espaço disponível no sistema de 
 df -h
 ```
 ![Passo 7](images/SEI-7.1.png)
+
+Passo 8 - Verificar versão do Linux para realizar as instalações compatíveis
+```bash
+cat /etc/*release*
+```
+![Passo 8](images/SEI-8.0.png)
