@@ -31,30 +31,35 @@ chave ssh mesma dos outros labs! ssh liberado para rede da positivo
 ### Resolução
 Neste desafio em específico foi utilizado o git bash
 
-Passo 1 -
+Passo 1 - Entrar na pasta onde o lab.pem está
 ```bash
+cd ~/Downloads
+```
 ![Passo 1](images/SEI-1.0.png)
-```
 
-Passo 2 - 
+Passo 2 - Realizar a conexão SSH utilizando a chave contida no lab.pem
 ```bash
-![Passo 2](images/SEI-1.0.png)
+ssh -i lab.pem ec2-user@44.203.151.213
 ```
+![Passo 2](images/SEI-2.0.png)
 
-Passo 3 -
+Passo 3 - Acessar no modo root para ter acesso aos arquivos da documentação
 ```bash
-![Passo 3](images/SEI-1.0.png)
+sudo -i
 ```
+![Passo 3](images/SEI-3.0.png)
 
-Passo 4 - 
+Passo 4 - Verificar arquivos
 ```bash
-![Passo 4](images/SEI-1.0.png)
+ls /opt/sei-lab
 ```
+![Passo 4](images/SEI-4.0.png)
 
-Passo 5 - 
+Passo 5 - Acessar documentação
 ```bash
-![Passo 5](images/SEI-1.0.png)
+cat 'INSTALACAO 4.0.12.15.md'
 ```
+![Passo 5](images/SEI-5.0.png)
 
 Passo 6 - 
 ```bash
