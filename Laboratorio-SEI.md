@@ -67,8 +67,24 @@ unzip sei-4.0.12.15.zip
 ```
 ![Passo 6](images/SEI-6.0.png)
 
-Passo 7 - 
-```bash
+Passo 7 - Verificar exigências do sistema, na documentação foi verificado que existem alguns requisitos para o Balanceador de Aplicação
+#### Itens Obrigatórios
 
+• Sistema Operacional: Linux
+• Recursos de Hardware: 1 CPU, 2 GB de Memória RAM e 50 GB de Disco (Armazenamento).
+• Serviço Principal: Servidor Web Apache 2.4.6 (ou superior, dependendo do fornecedor) com o módulo mod_proxy_balancer ativado. Este módulo é indispensável, pois é ele quem faz o trabalho de distribuir o peso dos acessos entre os outros servidores.
+
+#### Item Opcional (Recomendado)
+• Módulo mod_evasive: Não é obrigatório para o sistema rodar, mas é altamente recomendável para a segurança do seu ambiente. Ele serve para proteger o seu servidor contra ataques de negação de serviço (DoS/DDoS) e tentativas de derrubar o site por excesso de acessos simultâneos
+
+Verificar o uso da memória RAM e do espaço de troca da VM
+```bash
+free -h
 ```
 ![Passo 7](images/SEI-7.0.png)
+
+Verificar informações sobre espaço total e espaço disponível no sistema de arquivos
+```bash
+df -h
+```
+![Passo 7](images/SEI-7.1.png)
