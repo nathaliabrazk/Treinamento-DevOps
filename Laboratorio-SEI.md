@@ -28,3 +28,40 @@ Utilize somente a sua instância e não altere os ambientes dos demais trainees.
 
 chave ssh mesma dos outros labs! ssh liberado para rede da positivo
 
+### Resolução
+Neste desafio em específico foi utilizado o git bash
+
+Passo 1 -
+```bash
+![Passo 1](images/SEI-1.0.png)
+```
+
+Passo 2 - 
+```bash
+![Passo 2](images/SEI-1.0.png)
+```
+
+Passo 3 -
+```bash
+![Passo 3](images/SEI-1.0.png)
+```
+
+Passo 4 - 
+```bash
+![Passo 4](images/SEI-1.0.png)
+```
+
+Passo 5 - 
+```bash
+![Passo 5](images/SEI-1.0.png)
+```
+
+Passo 6 - 
+```bash
+![Passo 6](images/SEI-1.0.png)
+```
+
+Passo 7 - 
+```bash
+![Passo 7](images/SEI-1.0.png)
+```
