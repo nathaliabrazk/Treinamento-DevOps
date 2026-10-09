@@ -609,6 +609,7 @@ sudo systemctl restart httpd
 - **Mensagem exibida ao realizar login:** Esta página não está funcionando no momento - ec2-3-85-233-158.compute-1.amazonaws.com não pode lidar com esta solicitação no momento.
 - **Causa:** Foi verificado que era necessário instalar pendências do módulo SOAP para o PHP
 - **Correção:** Instalar pendências e reiniciar o apache.
+- 
 ![Erro 2: acesso ao SEI no navegador](images/ERRO-SIP-2.png)
 
 #### Erro 3: erro de login ao acessar o SIP pelo navegador
@@ -616,7 +617,7 @@ sudo systemctl restart httpd
 - **URL testada:** `(http://ec2-3-85-233-158.compute-1.amazonaws.com/sip)`
 - **Mensagem exibida:** ec2-3-85-233-158.compute-1.amazonaws.com diz Class “ not found 
 - **Causa:** ` Ausência da extensão memcache,  se CacheSEI/CacheSip estiverem ativos no arquivo, o login falha com “Erro acessando o Sistema de Permissões” caso o memcached não esteja rodando)
-- **Correção:** .
+- **Correção:** Instalar a extensão PHP O nome do pacote depende da versão do PHP instalada.
 
 ![Erro 3: falha de login no SIP](images/ERRO-SIP-3.png)
 
