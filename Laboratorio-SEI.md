@@ -493,8 +493,6 @@ sudo cp -p /opt/sip/config/ConfiguracaoSip.exemplo.php /opt/sip/config/Configura
 sudo cp -p /opt/sip/config/ConfiguracaoSip.php /opt/sip/config/ConfiguracaoSip.php.original   # backup do manual
 sudo vim /opt/sip/config/ConfiguracaoSip.php
 ```
-
-Campos alterados:
 | Bloco / chave | Valor no lab | Por quê |
 |---|---|---|
 | `SIP / URL` | `http://SEU_ENDERECO/sip` | Endereço pelo qual o SIP é acessado. |
@@ -512,7 +510,7 @@ Campos alterados:
 | BancoSip / Tipo | MySql |  Também vale para MariaDB |
 | CacheSip / Servidor, Porta | localhost, 11211 | O memcached da Etapa 4 |
 
-Campos alterados
+Campos alterados:
 
 ```php
 'BancoSip' => array(
@@ -606,6 +604,39 @@ Habilitar exibição de erros temporariamente (**desfazer depois do diagnóstico
 sudo sed -i 's/^display_errors = .*/display_errors = On/' /etc/php.ini
 sudo systemctl restart httpd
 ```
+
+### Registro dos erros (prints)
+
+#### Erro 1: ao acessar o SIP pelo navegador
+
+- **URL testada:** `http://ec2-3-85-233-158.compute-1.amazonaws.com/sip`
+- **Mensagem exibida:** Erro Falha ao abrir conexão com o banco de dados
+- **Causa:** Foi verificado o arquivo de configuração Sip estava com o usuário errado.
+- - **Correção:** O acesso foi realizado e o usuário ‘localhost’ foi substituido por ‘sei_user’
+
+![Erro 1: acesso ao SIP no navegador](imagens/ERRO-SIP-1.png)
+
+#### Erro 2: erro de login ao acessar o SIP pelo navegador
+
+- **URL testada:** `(http://ec2-3-85-233-158.compute-1.amazonaws.com/sip)`
+- **Mensagem exibida ao realizar login:** Esta página não está funcionando no momento - ec2-3-85-233-158.compute-1.amazonaws.com não pode lidar com esta solicitação no momento.
+- **Causa:** Foi verificado que era necessário instalar pendências do módulo SOAP para o PHP
+- **Correção:** Instalar pendências e reiniciar o apache.
+![Erro 2: acesso ao SEI no navegador](imagens/ERRO-SIP-2.png)
+
+#### Erro 3: erro de login ao acessar o SIP pelo navegador
+
+- **URL testada:** `(http://ec2-3-85-233-158.compute-1.amazonaws.com/sip)`
+- **Mensagem exibida:** ec2-3-85-233-158.compute-1.amazonaws.com diz Class “ not found 
+- **Causa:** ` Ausência da extensão memcache,  se CacheSEI/CacheSip estiverem ativos no arquivo, o login falha com “Erro acessando o Sistema de Permissões” caso o memcached não esteja rodando)
+- **Correção:** .
+
+![Erro 3: falha de login no SIP](imagens/ERRO-SIP-3.png)
+
+#### Erro ao gerar PDF de processo SEI
+
+- **Causa:** O servidor não tinha o wkhtmltopdf instalado. O SEI usa essa ferramenta para converter o HTML dos documentos em PDF, e sem o binário no servidor a geração falha.
+- **Correção:** Instalar as dependências, a instalação foi feita em uma instância EC2 (Amazon Linux 2, usuário ec2-user), usando o pacote RPM oficial do projeto.
 
 ### Problemas encontrados e soluções
 
@@ -962,4 +993,5 @@ No laboratório, o `php-fpm` apareceu como `disabled`. Se o manual exigir, habil
 - [ ] Trocar a senha padrão `teste` do usuário do SIP.
 - [ ] Validar login completo e registros em Infra/Log.
 
+---
 
