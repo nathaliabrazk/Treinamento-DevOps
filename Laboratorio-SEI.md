@@ -99,9 +99,6 @@ getenforce                      # modo do SELinux
 systemctl is-active firewalld   # firewall local
 ```
 
-![Etapa 0](imagens/etapa-0.0.png)
-
----
 
 ## Etapa 1: Descompactação dos pacotes
 
@@ -136,10 +133,6 @@ sudo cp -r ~/sei-pacote/sei ~/sei-pacote/sip ~/sei-pacote/infra /opt/
 ls /opt/sei /opt/sip /opt/infra
 ```
 
-![Etapa 1](imagens/etapa-1.7.png)
-
----
-
 ## Etapa 2: Apache
 
 Referência no manual: seção 2 (Servidores).
@@ -157,8 +150,6 @@ curl -I http://localhost
 ls -ld /var/www/html
 ls -la /var/www/html
 ```
-
----
 
 ## Etapa 3: PHP 7.3 e extensões
 
@@ -481,8 +472,6 @@ sudo chmod 644 /etc/cron.d/sei-limpeza
 cat /etc/cron.d/sei-limpeza
 ```
 
----
-
 ## Etapa 7: Configurar o SIP
 
 Referência no manual: seção 5.
@@ -533,8 +522,6 @@ Validar:
 sudo php -l /opt/sip/config/ConfiguracaoSip.php     # sem sudo dá "Could not open input file"
 sudo ls -l /opt/sip/config/ConfiguracaoSip.php      # conferir dono/permissões da Etapa 6
 ```
-
----
 
 ## Etapa 8: Configurar o SEI
 
@@ -676,6 +663,7 @@ java -version
 
 sudo useradd solr      # no lab o usuário já existia ("already exists" não é erro)
 ```
+---
 
 ### 10.2 Preparar os arquivos em `/tmp`
 
@@ -733,6 +721,8 @@ O script descompacta o Solr em `/opt/solr`, cria `/dados` com os cores e instala
 
 (Sem `sudo`, o `tree` mostra `[error opening dir]`, pois `/dados` pertence ao usuário `solr`.)
 
+---
+
 ### 10.4 Corrigir o erro de memória (`-Xmxlg`)
 
 > **Problema:** o serviço aparecia como `active (running)`, mas o Solr não subia (porta 8983 fechada, sem processo `java`).
@@ -765,6 +755,7 @@ sudo systemctl restart solr
 sleep 30
 sudo systemctl enable solr
 ```
+---
 
 ### 10.6 Verificar os cores
 
@@ -869,7 +860,6 @@ Se for preciso o caminho `/usr/bin/wkhtmltopdf`:
 ```bash
 sudo ln -s /usr/local/bin/wkhtmltopdf /usr/bin/wkhtmltopdf
 ```
-
 ---
 
 ## Etapa 12: Agendamentos (cron)
@@ -939,8 +929,6 @@ mysql -u sei_user -p -e "SELECT dth_log, texto FROM sei.infra_log ORDER BY dth_l
 ```
 
 O SIP tem a mesma estrutura em `sip.infra_log`.
-
----
 
 ## Conferência final
 
