@@ -599,7 +599,7 @@ sudo systemctl restart httpd
 - **URL testada:** `http://ec2-3-85-233-158.compute-1.amazonaws.com/sip`
 - **Mensagem exibida:** Erro Falha ao abrir conexão com o banco de dados
 - **Causa:** Foi verificado o arquivo de configuração Sip estava com o usuário errado.
-- - **Correção:** O acesso foi realizado e o usuário ‘localhost’ foi substituido por ‘sei_user’
+- **Correção:** O acesso foi realizado e o usuário ‘localhost’ foi substituido por ‘sei_user’
 
 ![Erro 1: acesso ao SIP no navegador](images/ERRO-SIP-1.png)
 
@@ -609,7 +609,7 @@ sudo systemctl restart httpd
 - **Mensagem exibida ao realizar login:** Esta página não está funcionando no momento - ec2-3-85-233-158.compute-1.amazonaws.com não pode lidar com esta solicitação no momento.
 - **Causa:** Foi verificado que era necessário instalar pendências do módulo SOAP para o PHP
 - **Correção:** Instalar pendências e reiniciar o apache.
-- 
+
 ![Erro 2: acesso ao SEI no navegador](images/ERRO-SIP-2.png)
 
 #### Erro 3: erro de login ao acessar o SIP pelo navegador
